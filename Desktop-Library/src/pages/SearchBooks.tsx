@@ -18,15 +18,23 @@ function SearchBooks() {
 
   const handleSearch = async () => {
     try {
-      const data: Book[] = await searchBooks(query); // Call searchBooks function
-      setResults(data); // Set search results
-      setError(''); // Clear any previous errors
-    } catch (error) {
-      console.error('Error fetching search results:', error);
+      console.log('Query:', query);
+  
+      // Call searchBooks function
+      const data: Book[] = await searchBooks(query);
+      console.log('Data received:', data);
+  
+      // Update state with results
+      setResults(data);
+      setError('');
+    } catch (error: any) {
+      // Log error details
+      console.error('Error fetching search results:', error.message || error);
       setError('Failed to fetch search results');
-      setResults([]); // Clear results on error
+      setResults([]);
     }
   };
+  
 
   return (
     <div>
@@ -46,7 +54,6 @@ function SearchBooks() {
             <p>Author: {book.author}</p>
             <p>Genre: {book.genre}</p>
             <p>Publication Date: {new Date(book.publication_date).getFullYear()}</p>
-            {/* {console.log(book.publication_date)} */}
           </li>
         ))}
       </ul>

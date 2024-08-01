@@ -1,34 +1,44 @@
 /* src/Sidebar.css */
 .sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: #f4f4f4;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
-  
-  .sidebar h2 {
-    margin-top: 0;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    margin: 10px 0;
-  }
-  
-  .sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .sidebar ul li a:hover {
-    color: #007bff;
-  }
+  width: 100px;
+  height: 100vh;
+  background-color: #f4f4f4;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  color: #007bff;
+}
+
+.sidebar-icon {
+  font-size: 24px; /* Default icon size */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.mushroom-icon {
+  font-size: 32px; /* Larger size for mushroom house icon */
+}
+
   

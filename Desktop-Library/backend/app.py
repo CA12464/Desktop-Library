@@ -5,7 +5,7 @@ from psycopg2 import sql
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 def get_db_connection():
@@ -17,7 +17,7 @@ def get_db_connection():
     )
     return conn
 
-@app.route('/api/search', methods=['GET'])
+@app.route('/api/searchBooks', methods=['GET'])
 def search_books():
     query = request.args.get('query', '')
     if not query:
