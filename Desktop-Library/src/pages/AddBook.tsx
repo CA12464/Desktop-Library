@@ -1,17 +1,16 @@
-// src/pages/AddBook.jsx
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { addBook } from '../functions/addBookPost'; // Import the updated function
 import './AddBook.css'; // Import CSS for this component
 
-function AddBook() {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('');
-  const [publicationDate, setPublicationDate] = useState('');
-  const [message, setMessage] = useState('');
+const AddBook: React.FC = () => {
+  const [title, setTitle] = useState<string>('');
+  const [author, setAuthor] = useState<string>('');
+  const [genre, setGenre] = useState<string>('');
+  const [publicationDate, setPublicationDate] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
-  const handleSubmit = async (e) => {
+  // Type the event as React.FormEvent<HTMLFormElement>
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const bookData = {
@@ -33,6 +32,7 @@ function AddBook() {
     }
   };
 
+  // Type the events in onChange handlers
   return (
     <div className="add-book-container">
       <h1>Add New Book</h1>
@@ -42,7 +42,7 @@ function AddBook() {
           <input
             type="text"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
             required
             className="form-input"
           />
@@ -52,7 +52,7 @@ function AddBook() {
           <input
             type="text"
             value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)}
             required
             className="form-input"
           />
@@ -62,7 +62,7 @@ function AddBook() {
           <input
             type="text"
             value={genre}
-            onChange={(e) => setGenre(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setGenre(e.target.value)}
             className="form-input"
           />
         </label>
@@ -71,7 +71,7 @@ function AddBook() {
           <input
             type="number"
             value={publicationDate}
-            onChange={(e) => setPublicationDate(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPublicationDate(e.target.value)}
             min="1900" // Set minimum year
             max={new Date().getFullYear()} // Set maximum year to current year
             className="form-input"
@@ -85,4 +85,5 @@ function AddBook() {
 }
 
 export default AddBook;
+
 

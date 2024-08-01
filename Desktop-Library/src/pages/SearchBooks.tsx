@@ -1,15 +1,24 @@
-// src/pages/SearchBooks.jsx
 import { useState } from 'react';
 import { searchBooks } from '../functions/searchBookGET'; // Import the searchBooks function
 
+// Define a type for the book data
+interface Book {
+  id: number;
+  title: string;
+  author: string;
+  genre: string;
+  publication_date: string; // Assuming this is a string date
+}
+
 function SearchBooks() {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState('');
+  // Type the state hooks
+  const [query, setQuery] = useState<string>('');
+  const [results, setResults] = useState<Book[]>([]); // Typed as an array of Book
+  const [error, setError] = useState<string>('');
 
   const handleSearch = async () => {
     try {
-      const data = await searchBooks(query); // Call searchBooks function
+      const data: Book[] = await searchBooks(query); // Call searchBooks function
       setResults(data); // Set search results
       setError(''); // Clear any previous errors
     } catch (error) {
@@ -37,7 +46,7 @@ function SearchBooks() {
             <p>Author: {book.author}</p>
             <p>Genre: {book.genre}</p>
             <p>Publication Date: {new Date(book.publication_date).getFullYear()}</p>
-            {console.log((book.publication_date))}
+            {/* {console.log(book.publication_date)} */}
           </li>
         ))}
       </ul>
@@ -46,3 +55,4 @@ function SearchBooks() {
 }
 
 export default SearchBooks;
+

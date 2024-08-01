@@ -1,6 +1,7 @@
-// src/functions/addBookPost.js
+// src/functions/addBookPost.ts
+import { BookData } from '../types'; // Adjust the path as needed
 
-export const addBook = async (bookData) => {
+export const addBook = async (bookData: BookData): Promise<any> => {
   try {
     const response = await fetch('http://localhost:5000/api/addBook', {
       method: 'POST',

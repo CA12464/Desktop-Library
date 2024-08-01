@@ -1,9 +1,9 @@
-// src/Sidebar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'; // Optional: if you have CSS for styling
 
-function Sidebar() {
+// Functional component with no props
+const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
       <h2>Library</h2>
