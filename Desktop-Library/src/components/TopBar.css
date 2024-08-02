@@ -1,0 +1,25 @@
+/* src/components/TopBar.css */
+.topbar {
+    width: calc(100% - 100px); /* Full width minus the sidebar width */
+    height: 60px; /* Adjust height as needed */
+    background-color: #181818; /* Same background color as Sidebar */
+    padding: 20px; /* Same padding as Sidebar */
+    position: fixed;
+    top: 0; /* Position at the top */
+    left: 100px; /* Offset to the right of Sidebar */
+    color: white; /* Same text color as Sidebar */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Center items horizontally */
+    box-sizing: border-box; /* Include padding in width and height */
+    z-index: 1; /* Ensure it's on top of other elements */
+  }
+  
+  .topbar h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Adjust font size if needed */
+  }
+  
+  
+
+

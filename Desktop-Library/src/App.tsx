@@ -1,6 +1,7 @@
 // src/App.tsx
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import TopBar from './components/TopBar';
 import Home from './pages/Home';
 import BrowseBooks from './pages/BrowseBooks';
 import AddBook from './pages/AddBook';
@@ -12,12 +13,13 @@ function App() {
     <Router>
       <div className="App">
         <Sidebar />
+        <TopBar />
         <div className="content">
           <Routes>
-            <Route path="/" Component={Home } />
-            <Route path="/browse" Component={BrowseBooks} />
-            <Route path="/add" Component={AddBook} />
-            <Route path="/search" Component={SearchBooks} />
+            <Route path="/" element={<Home />} />
+            <Route path="/browse" element={<BrowseBooks />} />
+            <Route path="/add" element={<AddBook />} />
+            <Route path="/search" element={<SearchBooks />} />
           </Routes>
         </div>
       </div>
@@ -26,3 +28,4 @@ function App() {
 }
 
 export default App;
+

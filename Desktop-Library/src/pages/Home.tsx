@@ -1,4 +1,5 @@
 // src/pages/Home.js
+import './Home.css';
 
 function Home() {
   return (

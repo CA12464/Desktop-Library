@@ -7,7 +7,6 @@ import { FaBook, FaPlus, FaSearch } from "react-icons/fa";
 const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
-      <h2>Library</h2>
       <ul>
         <li>
           <Link to="/">

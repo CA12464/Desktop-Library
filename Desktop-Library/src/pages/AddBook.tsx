@@ -13,12 +13,14 @@ const AddBook: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      // Create the bookData object here
       const bookData = {
         title,
         author,
         genre,
-        publication_date: publicationDate,
+        publication_date: publicationDate, // Ensure this key matches the server's expected key
       };
+
       // Replace with your addBook function call
       const result = await addBook(bookData);
       setMessage(`Book added successfully: ${result.title}`);
@@ -85,5 +87,6 @@ const AddBook: React.FC = () => {
 }
 
 export default AddBook;
+
 
 

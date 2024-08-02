@@ -1,16 +1,18 @@
 /* src/Sidebar.css */
 .sidebar {
-  width: 100px;
+  width: 60px;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #181818; /* Dark grey color */
   padding: 20px;
   position: fixed;
   left: 0;
   top: 0;
+  color: white; /* Text color for contrast */
 }
 
 .sidebar h2 {
   margin-top: 0;
+  color: white; /* Heading color */
 }
 
 .sidebar ul {
@@ -24,12 +26,12 @@
 
 .sidebar ul li a {
   text-decoration: none;
-  color: #333;
+  color: white; /* Default link color */
   font-weight: bold;
 }
 
 .sidebar ul li a:hover {
-  color: #007bff;
+  color: #a9a9aa; /* Dim blue color for hover effect */
 }
 
 .sidebar-icon {
@@ -40,5 +42,3 @@
 .mushroom-icon {
   font-size: 32px; /* Larger size for mushroom house icon */
 }
-
-  
