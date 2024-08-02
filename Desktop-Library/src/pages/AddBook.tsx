@@ -9,32 +9,35 @@ const AddBook: React.FC = () => {
   const [publicationDate, setPublicationDate] = useState<string>('');
   const [message, setMessage] = useState<string>('');
 
-  // Type the event as React.FormEvent<HTMLFormElement>
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      // Create the bookData object here
-      const bookData = {
-        title,
-        author,
-        genre,
-        publication_date: publicationDate, // Ensure this key matches the server's expected key
-      };
 
-      // Replace with your addBook function call
-      const result = await addBook(bookData);
-      setMessage(`Book added successfully: ${result.title}`);
+    // Validate publicationDate to be a number and a valid year
+    if (!/^\d{4}$/.test(publicationDate)) {
+      setMessage('Invalid publication year');
+      return;
+    }
+
+    const bookData = {
+      title,
+      author,
+      genre,
+      publication_date: publicationDate,
+    };
+
+    try {
+      await addBook(bookData);
+      setMessage('Book added successfully');
       setTitle('');
       setAuthor('');
       setGenre('');
       setPublicationDate('');
     } catch (error) {
-      console.error('Error adding book:', error); // Log the error for debugging
+      console.error('Error adding book:', error);
       setMessage('Error adding book');
     }
   };
 
-  // Type the events in onChange handlers
   return (
     <div className="add-book-container">
       <h1>Add New Book</h1>
@@ -87,6 +90,7 @@ const AddBook: React.FC = () => {
 }
 
 export default AddBook;
+
 
 
 

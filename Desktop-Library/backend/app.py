@@ -20,14 +20,16 @@ def get_db_connection():
 @app.route('/api/searchBooks', methods=['GET'])
 def search_books():
     query = request.args.get('query', '')
-    if not query:
-        return jsonify({"error": "No search query provided"}), 400
     
+    # Handle case where query is empty
+    if query == '':
+        query = '%'  # This will match all records
+
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute('''
         SELECT * FROM books
-        WHERE title ILIKE %s OR author ILIKE %s 
+        WHERE title ILIKE %s OR author ILIKE %s
     ''', (f'%{query}%', f'%{query}%'))
     
     books = cur.fetchall()
@@ -40,22 +42,22 @@ def search_books():
     return jsonify(result)
 
 
+
+
+
 @app.route('/api/addBook', methods=['POST'])
 def add_book():
-    data = request.json
-    title = data.get('title')
-    author = data.get('author')
-    genre = data.get('genre')
-    publication_date = data.get('publication_date')
-
-    if not all([title, author, genre, publication_date]):
-        return jsonify({"error": "All fields are required"}), 400
-
-    conn = get_db_connection()
-    if conn is None:
-        return jsonify({"error": "Database connection error"}), 500
-
     try:
+        data = request.json
+        title = data.get('title')
+        author = data.get('author')
+        genre = data.get('genre')
+        publication_date = data.get('publication_date')
+
+        if not all([title, author, genre, publication_date]):
+            return jsonify({"error": "All fields are required"}), 400
+
+        conn = get_db_connection()
         cur = conn.cursor()
         cur.execute(
             sql.SQL('INSERT INTO books (title, author, genre, publication_date) VALUES (%s, %s, %s, %s) RETURNING id;'),
@@ -67,8 +69,11 @@ def add_book():
         conn.close()
         return jsonify({"id": book_id, "title": title}), 201
     except Exception as e:
-        print(f"Database operation error: {e}")
+        print(f"Database operation error: {e}")  # Log error message
         return jsonify({"error": "Error adding book"}), 500
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
