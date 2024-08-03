@@ -29,7 +29,7 @@ def search_books():
     cur = conn.cursor()
     cur.execute('''
         SELECT * FROM books
-        WHERE title ILIKE %s OR author ILIKE %s
+        WHERE title ILIKE %s OR author ILIKE %s 
     ''', (f'%{query}%', f'%{query}%'))
     
     books = cur.fetchall()

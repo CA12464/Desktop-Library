@@ -77,7 +77,7 @@ const AddBook: React.FC = () => {
             type="number"
             value={publicationDate}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPublicationDate(e.target.value)}
-            min="1900" // Set minimum year
+            min="1000" // Set minimum year
             max={new Date().getFullYear()} // Set maximum year to current year
             className="form-input"
           />

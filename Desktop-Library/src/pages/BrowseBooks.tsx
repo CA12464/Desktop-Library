@@ -35,6 +35,7 @@ function BrowseBooks() {
         {books.length > 0 ? (
           books.map((book) => (
             <li key={book.id}>
+              <div></div>
               <h2>{book.title}</h2>
               <p>Author: {book.author}</p>
               <p>Genre: {book.genre}</p>
