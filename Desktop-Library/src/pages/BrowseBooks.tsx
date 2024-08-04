@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import { searchBooks } from '../functions/searchBookGET'; // Adjust the import path as needed
+import './BrowseBooks.css'; // Import the CSS file for styling
 
 interface Book {
   id: number;
@@ -7,6 +9,7 @@ interface Book {
   author: string;
   genre: string;
   publication_date: string;
+  cover_image?: string; // Added cover_image property
 }
 
 function BrowseBooks() {
@@ -30,29 +33,34 @@ function BrowseBooks() {
   return (
     <div className="browse-books-container">
       <h1>Browse Books</h1>
-      {error && <p>{error}</p>}
-      <ul>
+      {error && <p className="error-message">{error}</p>}
+      <div className="book-grid">
         {books.length > 0 ? (
           books.map((book) => (
-            <li key={book.id}>
-              <div></div>
-              <h2>{book.title}</h2>
-              <p>Author: {book.author}</p>
-              <p>Genre: {book.genre}</p>
-              <p>Publication Date: {book.publication_date}</p>
-            </li>
+            <div key={book.id} className="book-item">
+              <img
+                src={`/api/getBookImage/${book.id}`} // Use the API endpoint to fetch book cover images
+                alt={`${book.title} Cover`}
+                className="book-cover"
+              />
+              <h2 className="book-title">{book.title}</h2>
+              <p className="book-author">Author: {book.author}</p>
+              <p className="book-genre">Genre: {book.genre}</p>
+              <p className="book-date">Publication Date: {book.publication_date}</p>
+              <Link to={`/book/${book.id}`} className="view-more-link">
+                <button className="view-more-button">View More</button>
+              </Link>
+            </div>
           ))
         ) : (
           <p>No books available</p>
         )}
-      </ul>
+      </div>
     </div>
   );
 }
 
 export default BrowseBooks;
-
-
 
 
 
