@@ -1,108 +1,120 @@
-.search-books-container {
+/* Wrapper for Browse Books */
+.browse-books-wrapper {
+    padding: 30px; /* Increased padding for a more spacious feel */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333;
+    color: #f0f0f0;
+    max-width: 1200px; /* Increased max-width */
+    margin: 0 auto; /* Center-aligns horizontally */
+    border-radius: 16px; /* Larger border radius for a more modern look */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    position: absolute; /* Positioning it absolutely */
+    top: 50%; /* Move it to the vertical center of the page */
+    left: 50%; /* Move it to the horizontal center of the page */
+    transform: translate(-50%, -50%); /* Adjust positioning to center it */
+  }
+  
+  /* Header styles for Browse Books */
+  .browse-books-header {
+    text-align: center;
+    color: #f0f0f0;
+    margin-bottom: 30px; /* Increased bottom margin */
+    font-size: 3rem; /* Larger font size */
+    font-weight: 700;
+  }
+  
+  /* Container styles for Browse Books */
+  .browse-books-container {
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #333;
-    color: #f0f0f0; /* Changed for better contrast */
-    max-width: 1000px;
-    margin: 20px; /* Center-aligns horizontally */
-    margin-top: -180px; /* Adjust this value to control vertical positioning */
-    border-radius: 12px; /* Slightly larger border radius for a more modern look */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for more depth */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center-align content horizontally */
-}
-
-
-.search-header {
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-size: 2.5rem; /* Slightly larger font size for better prominence */
-    font-weight: 700; /* Bold weight for a more striking header */
-}
-
-.search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 12px; /* Slightly increased gap for better spacing */
-    width: 100%;
-    max-width: 600px; /* Ensure it doesn't stretch too wide */
-}
-
-.search-input {
-    width: 100%;
-    padding: 14px; /* Slightly more padding for a better touch */
-    border: 1px solid #555; /* Slightly lighter border color for contrast */
-    border-radius: 10px; /* More rounded corners for a softer look */
-    font-size: 18px; /* Larger font size for improved readability */
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.search-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adding a subtle focus shadow */
-}
-
-.search-button {
-    padding: 14px 26px; /* Slightly increased padding for a bolder button */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 10px; /* Rounded corners to match the input */
-    cursor: pointer;
-    font-size: 18px; /* Larger font size for consistency */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.search-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Slight scale-up effect on hover */
-}
-
-.error-message {
+    color: #f0f0f0;
+  }
+  
+  /* Error message styles */
+  .error-message {
     color: #dc3545;
     text-align: center;
-    font-size: 1.125rem; /* Slightly larger font size for better visibility */
-}
-
-.results-container {
+    font-size: 1.5rem; /* Larger font size */
+  }
+  
+  /* Grid for book items */
+  .book-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Display three columns wide */
-    gap: 24px; /* Increased gap for better spacing */
-    width: 100%;
-}
-
-.book-card {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 12px; /* Larger border radius for a more modern card */
-    padding: 20px; /* Increased padding for a more spacious feel */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.book-card:hover {
-    transform: translateY(-8px); /* More pronounced hover effect */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-.book-title {
-    font-size: 1.5rem; /* Larger title for emphasis */
-    margin-bottom: 12px; /* Increased margin for better spacing */
-    color: #343a40;
-}
-
-.book-author, .book-genre, .book-date {
-    margin: 6px 0; /* Slightly larger margin for consistency */
-}
-
-.no-results {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px; /* Increased gap for consistency */
+  }
+  
+  /* Styles for each book item */
+  .book-item {
+    border: 1px solid #555;
+    padding: 30px; /* Increased padding */
     text-align: center;
-    color: #ffffff;
-    font-size: 1.125rem; /* Slightly larger font size for visibility */
-}
+    border-radius: 16px; /* Larger border radius */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    background-color: #151515 !important; /* Dark gray background with important flag */
+    color: #f0f0f0; /* Ensure text color is readable on dark background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+  }
+  
+  /* Hover effect for book items */
+  .book-item:hover {
+    transform: translateY(-10px); /* Move up slightly on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  }
+  
+  /* Cover image styles */
+  .book-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px; /* Larger border radius */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Styles for book details */
+  .book-title, .book-author, .book-genre, .book-date {
+    margin: 8px 0; /* Adjusted margin */
+  }
+  
+  .book-title {
+    font-size: 1.75rem; /* Larger font size */
+  }
+  
+  /* View more button styles */
+  .view-more-button {
+    margin-top: 14px;
+    padding: 16px 28px; /* Increased padding */
+    background-color: #007bff;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 12px; /* Larger border radius */
+    cursor: pointer;
+    font-size: 18px; /* Larger font size */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .view-more-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight scale-up effect */
+  }
+  
+  /* Responsive design for grid layout */
+  @media (max-width: 768px) {
+    .book-grid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .book-grid {
+      grid-template-columns: 1fr; /* One column on mobile phones */
+    }
+  }
+  
+  
+  
+  
 
   

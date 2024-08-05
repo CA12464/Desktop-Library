@@ -1,34 +1,52 @@
+.browse-books-wrapper {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #333;
+  color: #f0f0f0;
+  max-width: 1000px;
+  margin: 100px auto 20px auto; /* Adjusted top margin */
+  border-radius: 20px; /* Increased border-radius for more rounded edges */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow for more depth */
+  position: relative; /* Ensure it flows in the document flow */
+  top: 0; /* Ensure no additional offset */
+}
+
+
+
+.browse-books-header {
+  text-align: center;
+  color: #f0f0f0; /* Ensure heading text is light */
+  margin-bottom: 20px;
+  font-size: 2.5rem; /* Slightly larger font size for better prominence */
+  font-weight: 700; /* Bold weight for a more striking header */
+}
+
 .browse-books-container {
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match the font from Search Books */
   background-color: #333; /* Dark background for the container */
   color: #f0f0f0; /* Light text color */
 }
 
-.browse-books-container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #f0f0f0; /* Ensure heading text is light */
-}
-
 .error-message {
-  color: #ff4d4d; /* Light red for error messages */
+  color: #dc3545; /* Match error color from Search Books */
   text-align: center;
+  font-size: 1.125rem; /* Match font size from Search Books */
 }
 
 .book-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three columns for desktop */
-  gap: 20px; /* Space between items */
+  gap: 24px; /* Increased gap for consistency with Search Books */
 }
 
 .book-item {
-  border: 1px solid #444; /* Slightly lighter border for contrast */
-  padding: 15px;
+  border: 1px solid #555; /* Match border color from Search Books */
+  padding: 20px; /* Match padding from Search Books */
   text-align: center;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for better visibility */
-  background-color: #444; /* Slightly lighter background for book items */
+  border-radius: 12px; /* Match border-radius from Search Books */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Match shadow from Search Books */
+  background-color: #444; /* Match background color from Search Books */
 }
 
 .book-cover {
@@ -41,26 +59,28 @@
 }
 
 .book-title, .book-author, .book-genre, .book-date {
-  margin: 5px 0;
+  margin: 6px 0; /* Match margin from Search Books */
 }
 
 .book-title {
-  font-size: 1.2em;
+  font-size: 1.5rem; /* Match font size from Search Books */
 }
 
 .view-more-button {
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 14px 26px; /* Match padding from Search Books */
   background-color: #007bff;
   color: #f0f0f0; /* Button text color */
   border: none;
-  border-radius: 5px;
+  border-radius: 10px; /* Match border-radius from Search Books */
   cursor: pointer;
-  font-size: 1em;
+  font-size: 18px; /* Match font size from Search Books */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Match transition from Search Books */
 }
 
 .view-more-button:hover {
   background-color: #0056b3;
+  transform: scale(1.05); /* Match scale effect from Search Books */
 }
 
 @media (max-width: 768px) {
@@ -74,5 +94,8 @@
     grid-template-columns: 1fr; /* One column on mobile phones */
   }
 }
+
+
+
 
   

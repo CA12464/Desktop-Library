@@ -1,7 +1,18 @@
 body {
-    background-color: #333;
+    background-color: #333; /* Base color */
     color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
+    background-image: 
+      /* Large grid lines */
+      linear-gradient(90deg, #555 4px, transparent 4px),
+      linear-gradient(180deg, #555 4px, transparent 4px),
+      /* Smaller grid lines inside the large grid */
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px, 10px 10px, 20px 20px; /* Increased size for large boxes */
+    background-position: 0 0, 0 0, 0 0, 40px 40px; /* Offset smaller grid lines within larger boxes */
+    background-repeat: repeat; /* Ensure the pattern repeats */
+  }
+  
