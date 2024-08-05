@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
 import { searchBooks } from '../functions/searchBookGET'; // Adjust the import path as needed
 import './BrowseBooks.css'; // Import the CSS file for styling
 
@@ -39,7 +38,7 @@ function BrowseBooks() {
           books.map((book) => (
             <div key={book.id} className="book-item">
               <img
-                src={`/api/getBookImage/${book.id}`} // Use the API endpoint to fetch book cover images
+                src={`/api/getBookImage/${book.id}`} // Ensure the URL is correctly formatted
                 alt={`${book.title} Cover`}
                 className="book-cover"
               />
@@ -47,9 +46,7 @@ function BrowseBooks() {
               <p className="book-author">Author: {book.author}</p>
               <p className="book-genre">Genre: {book.genre}</p>
               <p className="book-date">Publication Date: {book.publication_date}</p>
-              <Link to={`/book/${book.id}`} className="view-more-link">
-                <button className="view-more-button">View More</button>
-              </Link>
+              <button className="view-more-button">View More</button>
             </div>
           ))
         ) : (

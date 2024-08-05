@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { searchBooks } from '../functions/searchBookGET'; // Import the searchBooks function
+import './SearchBooks.css'; // Import CSS for styling
 
-// Define a type for the book data
 interface Book {
   id: number;
   title: string;
@@ -11,55 +11,57 @@ interface Book {
 }
 
 function SearchBooks() {
-  // Type the state hooks
   const [query, setQuery] = useState<string>('');
-  const [results, setResults] = useState<Book[]>([]); // Typed as an array of Book
+  const [results, setResults] = useState<Book[]>([]);
   const [error, setError] = useState<string>('');
 
   const handleSearch = async () => {
     try {
-      console.log('Query:', query);
-  
-      // Call searchBooks function
       const data: Book[] = await searchBooks(query);
-      console.log('Data received:', data);
-  
-      // Update state with results
       setResults(data);
       setError('');
     } catch (error: any) {
-      // Log error details
       console.error('Error fetching search results:', error.message || error);
       setError('Failed to fetch search results');
       setResults([]);
     }
   };
-  
 
   return (
-    <div>
-      <h1>Search Books</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)} // Update query state
-        placeholder="Search by title, author, etc."
-      />
-      <button onClick={handleSearch}>Search</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error if exists */}
-      <ul>
-        {results.map((book) => (
-          <li key={book.id}>
-            <h2>{book.title}</h2>
-            <p>Author: {book.author}</p>
-            <p>Genre: {book.genre}</p>
-            <p>Publication Date: {new Date(book.publication_date).getFullYear()}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="search-books-container">
+      <h1 className="search-header">Search Books</h1>
+      <div className="search-form">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search by title, author, etc."
+          className="search-input"
+        />
+        <button onClick={handleSearch} className="search-button">Search</button>
+      </div>
+      {error && <p className="error-message">{error}</p>}
+      {results.length > 0 ? (
+        <div className="results-container">
+          {results.map((book) => (
+            <div key={book.id} className="book-card">
+              <div className="book-details">
+                <h2 className="book-title">{book.title}</h2>
+                <p className="book-author">Author: {book.author}</p>
+                <p className="book-genre">Genre: {book.genre}</p>
+                <p className="book-date">Publication Date: {new Date(book.publication_date).getFullYear()}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        !error && <p className="no-results">No books found</p>
+      )}
     </div>
   );
 }
 
 export default SearchBooks;
+
+
 

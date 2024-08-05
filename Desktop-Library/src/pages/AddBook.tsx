@@ -7,6 +7,7 @@ const AddBook: React.FC = () => {
   const [author, setAuthor] = useState<string>('');
   const [genre, setGenre] = useState<string>('');
   const [publicationDate, setPublicationDate] = useState<string>('');
+  const [coverImage, setCoverImage] = useState<File | null>(null); // State for file input
   const [message, setMessage] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,20 +19,23 @@ const AddBook: React.FC = () => {
       return;
     }
 
-    const bookData = {
-      title,
-      author,
-      genre,
-      publication_date: publicationDate,
-    };
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('author', author);
+    formData.append('genre', genre);
+    formData.append('publication_date', publicationDate);
+    if (coverImage) {
+      formData.append('cover_image', coverImage);
+    }
 
     try {
-      await addBook(bookData);
+      await addBook(formData);
       setMessage('Book added successfully');
       setTitle('');
       setAuthor('');
       setGenre('');
       setPublicationDate('');
+      setCoverImage(null); // Clear file input after submission
     } catch (error) {
       console.error('Error adding book:', error);
       setMessage('Error adding book');
@@ -82,6 +86,15 @@ const AddBook: React.FC = () => {
             className="form-input"
           />
         </label>
+        <label className="form-label">
+          Cover Image:
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCoverImage(e.target.files ? e.target.files[0] : null)}
+            className="form-input"
+          />
+        </label>
         <button type="submit" className="form-button">Add Book</button>
       </form>
       {message && <p className="message">{message}</p>} {/* Display success or error message */}
@@ -90,6 +103,7 @@ const AddBook: React.FC = () => {
 }
 
 export default AddBook;
+
 
 
 
