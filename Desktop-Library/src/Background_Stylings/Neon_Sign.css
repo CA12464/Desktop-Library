@@ -1,0 +1,147 @@
+/* Neon_Sign.css */
+
+/* In your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@400;700&display=swap');
+
+
+:root {
+  --brand-primary: #44D688;
+  --font-family-display: Monoton, Arial, sans-serif;
+  --font-family-primary: 'Rubik', Arial, sans-serif;
+  --neon-effect: 0 0 0 transparent,
+    0 0 20px rgb(255, 0, 0),
+    0 0 50px rgba(255, 0, 0, .5),
+    0 0 200px rgba(255, 0, 0, .5),
+    0 0 250px rgba(255, 0, 0, 1),
+    0 0 300px rgba(255, 0, 0, 1),
+    -250px -100px 100px rgba(255, 0, 0, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%; /* Ensure the body and html cover the full viewport height */
+  margin: 0; /* Remove default margin */
+  background-color: #000; /* Set a uniform background color */
+  font-family: var(--font-family-primary);
+  line-height: 1.42;
+}
+
+.hero-block {
+  padding: 60px 30px; /* Increase padding for more space inside the block */
+  margin-top: 120px; /* Adjust as needed to position the block */
+  text-align: center;
+  /* background-color: rgba(51, 51, 51, 0.8);  */
+  border-radius: 20px; /* Rounded corners */
+  /* background: radial-gradient(ellipse at center, #333 0%, #000000 50%);
+  background-size: 2% 100%; 
+  background-position: center top; 
+   */
+  /* Optional: Specify width and height */
+  width: 100%; /* Adjust as needed */
+  max-width: 1200px; /* Ensure it doesn't get too wide */
+  /* height: auto;  Uncomment if you need a specific height */
+}
+
+
+
+.hero {
+  background-color: #000;
+  height: auto; /* Adjust height to fit content */
+  min-height: 100vh; /* Ensure it covers at least the viewport height */
+  display: flex;
+  flex-direction: column; /* Align children vertically */
+  justify-content: flex-start; /* Align items to the top */
+  text-align: center;
+  /* background: radial-gradient(ellipse at center, #333 0%, #000 50%);
+  background-size: 200% 100%; /* Expand gradient horizontally 
+  background-position: center top; Align gradient with the top of the element */
+}
+
+
+.hero-title {
+  font-family: var(--font-family-display);
+  color: #FF8888;
+  font-size: 45px;
+  text-shadow: var(--neon-effect);
+  margin: 0; /* Remove default margin */
+  line-height: 1.1; /* Adjust line-height for better spacing */
+  text-transform: uppercase;
+  transform: skew(0, -12deg) rotateZ(5deg);
+  white-space: nowrap;
+  animation: neon-blink 5s infinite alternate;
+
+
+  /* border: 3px solid #FF8888; 
+  padding: 10px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(255, 136, 136, 0.6);  */
+}
+
+
+.hero-title span {
+  display: block;
+  margin: 0; /* Ensure no additional margin is applied */
+}
+
+/* Adjust the spacing between lines */
+.hero-title span:not(:last-child) {
+  margin-bottom: 0px; /* Increase the negative margin to bring lines closer */
+}
+
+
+/* Description styling */
+.description {
+  background-color: #444; /* Lighter grey background for text */
+  color: #ddd; /* Light text color for contrast */
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+@media (min-width: 992px) {
+  .hero-title {
+    font-size: 86px;
+    margin-bottom: 100px;
+  }
+}
+
+
+@keyframes neon-blink {
+  44% {
+    opacity: 1;
+  }
+  
+  45% {
+    opacity: .7;
+  }
+  
+  46% {
+    opacity: 1;
+  }
+  
+  98% {
+    opacity: 1;
+  }
+  
+  99% {
+    opacity: .5;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
