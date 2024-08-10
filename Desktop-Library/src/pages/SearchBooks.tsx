@@ -14,8 +14,10 @@ function SearchBooks() {
   const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Book[]>([]);
   const [error, setError] = useState<string>('');
+  const [hasSearched, setHasSearched] = useState<boolean>(false); // Track if a search has been performed
 
   const handleSearch = async () => {
+    setHasSearched(true); // Set to true when search is initiated
     try {
       const data: Book[] = await searchBooks(query);
       setResults(data);
@@ -27,21 +29,27 @@ function SearchBooks() {
     }
   };
 
+
   return (
     <div className="search-books-container">
-      <h1 className="search-header">Search Books</h1>
-      <div className="search-form">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search by title, author, etc."
-          className="search-input"
-        />
-        <button onClick={handleSearch} className="search-button">Search</button>
+      {/* <h1 className="search-header">Search Books</h1> */}
+      <div className="search-form-container">
+        <div className="search-form">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by title, author, etc."
+            className="search-input"
+          />
+          <button onClick={handleSearch} className="search-button">Search</button>
+        </div>
       </div>
       {error && <p className="error-message">{error}</p>}
-      {results.length > 0 ? (
+      {hasSearched && !error && results.length === 0 && (
+        <p className="no-results">No books found</p>
+      )}
+      {results.length > 0 && (
         <div className="results-container">
           {results.map((book) => (
             <div key={book.id} className="book-card">
@@ -54,14 +62,9 @@ function SearchBooks() {
             </div>
           ))}
         </div>
-      ) : (
-        !error && <p className="no-results">No books found</p>
       )}
     </div>
   );
 }
 
 export default SearchBooks;
-
-
-

@@ -1,7 +1,6 @@
 // src/App.tsx
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import TopBar from './components/TopBar';
 import Home from './pages/Home';
 import BrowseBooks from './pages/BrowseBooks';
 import AddBook from './pages/AddBook';
@@ -13,7 +12,6 @@ function App() {
     <Router>
       <div className="App">
         <Sidebar />
-        <TopBar />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />

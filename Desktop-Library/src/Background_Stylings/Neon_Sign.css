@@ -1,20 +1,29 @@
-/* Neon_Sign.css */
+/* src/Background_Stylings/Neon_Sign.css */
 
-/* In your CSS file */
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@400;700&display=swap');
 
-
 :root {
-  --brand-primary: #44D688;
+  --brand-primary: #c2b4b4;   /*#b34b4b */
   --font-family-display: Monoton, Arial, sans-serif;
   --font-family-primary: 'Rubik', Arial, sans-serif;
   --neon-effect: 0 0 0 transparent,
+  
+   /* LIGHTER PURPLE */
+  0 0 20px rgb(160, 32, 240),
+  0 0 50px rgba(160, 32, 240, .5),
+  0 0 200px rgba(160, 32, 240, .5),
+  0 0 250px rgba(160, 32, 240, 1),
+  0 0 300px rgba(160, 32, 240, 1),
+  -250px -100px 100px rgba(160, 32, 240, 1);
+
+
+    /*  RED
     0 0 20px rgb(255, 0, 0),
     0 0 50px rgba(255, 0, 0, .5),
     0 0 200px rgba(255, 0, 0, .5),
     0 0 250px rgba(255, 0, 0, 1),
     0 0 300px rgba(255, 0, 0, 1),
-    -250px -100px 100px rgba(255, 0, 0, 1);
+    -250px -100px 100px rgba(255, 0, 0, 1); */
 }
 
 * {
@@ -30,23 +39,24 @@ body {
   line-height: 1.42;
 }
 
-.hero-block {
-  padding: 60px 30px; /* Increase padding for more space inside the block */
-  margin-top: 120px; /* Adjust as needed to position the block */
-  text-align: center;
-  /* background-color: rgba(51, 51, 51, 0.8);  */
-  border-radius: 20px; /* Rounded corners */
-  /* background: radial-gradient(ellipse at center, #333 0%, #000000 50%);
-  background-size: 2% 100%; 
-  background-position: center top; 
-   */
-  /* Optional: Specify width and height */
-  width: 100%; /* Adjust as needed */
-  max-width: 1200px; /* Ensure it doesn't get too wide */
-  /* height: auto;  Uncomment if you need a specific height */
+.main-wrapper {
+  background-color: #000;
+  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+  width: 100%;
+  overflow: hidden; /* Hide overflow if needed */
 }
 
 
+.hero-block {
+  padding: 60px 30px; /* Increase padding for more space inside the block */
+  margin-top: 70px; /* Adjust as needed to position the block */
+  text-align: center;
+  border-radius: 20px; /* Rounded corners */
+  width: 100%; /* Adjust as needed */
+  max-width: 1200px; /* Ensure it doesn't get too wide */
+
+  /* background-radial */
+}
 
 .hero {
   background-color: #000;
@@ -56,9 +66,6 @@ body {
   flex-direction: column; /* Align children vertically */
   justify-content: flex-start; /* Align items to the top */
   text-align: center;
-  /* background: radial-gradient(ellipse at center, #333 0%, #000 50%);
-  background-size: 200% 100%; /* Expand gradient horizontally 
-  background-position: center top; Align gradient with the top of the element */
 }
 
 
@@ -73,27 +80,17 @@ body {
   transform: skew(0, -12deg) rotateZ(5deg);
   white-space: nowrap;
   animation: neon-blink 5s infinite alternate;
-
-
-  /* border: 3px solid #FF8888; 
-  padding: 10px; 
-  border-radius: 10px; 
-  box-shadow: 0 0 10px rgba(255, 136, 136, 0.6);  */
 }
-
 
 .hero-title span {
   display: block;
   margin: 0; /* Ensure no additional margin is applied */
 }
 
-/* Adjust the spacing between lines */
 .hero-title span:not(:last-child) {
   margin-bottom: 0px; /* Increase the negative margin to bring lines closer */
 }
 
-
-/* Description styling */
 .description {
   background-color: #444; /* Lighter grey background for text */
   color: #ddd; /* Light text color for contrast */
@@ -111,7 +108,6 @@ body {
     margin-bottom: 100px;
   }
 }
-
 
 @keyframes neon-blink {
   44% {
@@ -140,8 +136,166 @@ body {
 }
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
 
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  place-items: center;
+  background: linear-gradient(315deg, #ffffff, #d7e1ec);
+}
 
+.wrapper {
+  display: flex;
+  list-style: none;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 24px; /* Adjusted for better icon visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover {
+  background: #a59999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook .icon {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.wrapper .twitter .icon {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram .icon {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .github .icon {
+  background: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube .icon {
+  background: #CD201F;
+  color: #ffffff;
+}
+
+/* New styles for text box and button layout */
+.text-box-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(51, 51, 51, 0.4); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px 0; /* Space between items */
+}
+
+.text-box {
+  flex: 1; /* Takes up remaining space */
+  color: #fff; /* Text color */
+}
+
+.button-container {
+  margin-left: 20px; /* Space between text and button */
+}
+
+.button--primary {
+  background-color: var(--brand-primary); /* Define this variable in your CSS */
+  border-color: transparent;
+  color: #000;
+  font-family: var(--font-family-primary); /* Define this variable in your CSS */
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: transform .2s;
+  display: inline-flex; /* Ensure it behaves like a button */
+  align-items: center;
+  text-decoration: none; /* Remove default link underline */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+.button--primary:hover {
+  background-color: #a59999; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  color: #000; 
+}
+
+.button--primary:active {
+  outline: 0;
+  transform: scale(.95);
+}
+
+.button-icon {
+  font-size: 24px; /* Adjust the size of the icon */
+  margin-right: 5px; /* Space between icon and text */
+}
 
 

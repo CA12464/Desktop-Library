@@ -7,7 +7,7 @@ const AddBook: React.FC = () => {
   const [author, setAuthor] = useState<string>('');
   const [genre, setGenre] = useState<string>('');
   const [publicationDate, setPublicationDate] = useState<string>('');
-  const [coverImage, setCoverImage] = useState<File | null>(null); // State for file input
+  const [coverImageUrl, setCoverImageUrl] = useState<string>(''); // State for URL input
   const [message, setMessage] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,9 +24,7 @@ const AddBook: React.FC = () => {
     formData.append('author', author);
     formData.append('genre', genre);
     formData.append('publication_date', publicationDate);
-    if (coverImage) {
-      formData.append('cover_image', coverImage);
-    }
+    formData.append('cover_image_url', coverImageUrl); // Add URL to form data
 
     try {
       await addBook(formData);
@@ -35,7 +33,7 @@ const AddBook: React.FC = () => {
       setAuthor('');
       setGenre('');
       setPublicationDate('');
-      setCoverImage(null); // Clear file input after submission
+      setCoverImageUrl(''); // Clear URL input after submission
     } catch (error) {
       console.error('Error adding book:', error);
       setMessage('Error adding book');
@@ -87,11 +85,11 @@ const AddBook: React.FC = () => {
           />
         </label>
         <label className="form-label">
-          Cover Image:
+          Cover Image URL:
           <input
-            type="file"
-            accept="image/*"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCoverImage(e.target.files ? e.target.files[0] : null)}
+            type="text"
+            value={coverImageUrl}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCoverImageUrl(e.target.value)}
             className="form-input"
           />
         </label>
@@ -103,6 +101,7 @@ const AddBook: React.FC = () => {
 }
 
 export default AddBook;
+
 
 
 

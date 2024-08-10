@@ -30,10 +30,10 @@
   max-width: 800px; /* Increased max-width for the form container */
 }
 
-.search-form {
+/* Additional form styles specific to Add Book form */
+.add-book-form {
   justify-content: center;
-  margin-bottom: 30px; /* Increased bottom margin */
-  gap: 16px; /* Increased gap */
+  gap: 16px; /* Increased gap between form elements */
 }
 
 /* Input styles for search and add book forms */
@@ -128,6 +128,12 @@
   display: block;
   margin: 0 auto;
 }
+
+/* Add specific styling for Cover Image URL input */
+.add-book-form input[type="text"] {
+  max-width: 400px; /* Adjusted max-width for URL input */
+}
+
 
 
 

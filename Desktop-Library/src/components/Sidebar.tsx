@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'; // Import the CSS file
-import { GiMushroomHouse } from "react-icons/gi";
-import { FaBook, FaPlus, FaSearch } from "react-icons/fa";
+import { Waypoints } from 'lucide-react';
 
 const Sidebar: React.FC = () => {
   return (
@@ -10,23 +9,10 @@ const Sidebar: React.FC = () => {
       <ul>
         <li>
           <Link to="/">
-            <GiMushroomHouse className="sidebar-icon mushroom-icon" /> {/* Apply both classes */}
+           <Waypoints/> {/* Apply both classes */}
           </Link>
         </li>
         <li>
-          <Link to="/browse">
-            <FaBook className="sidebar-icon" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/add">
-            <FaPlus className="sidebar-icon" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/search">
-            <FaSearch className="sidebar-icon" />
-          </Link>
         </li>
       </ul>
     </div>

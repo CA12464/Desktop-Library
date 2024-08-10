@@ -1,8 +1,17 @@
+html,
+body {
+  height: 100%; /* Ensure full height of the viewport */
+  margin: 0; /* Remove default margin */
+  background-color: #000; /* Set the background color to black */
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically if needed */
+  background-color: #000; /* Ensure background color is black */
 }
 
 .logo {

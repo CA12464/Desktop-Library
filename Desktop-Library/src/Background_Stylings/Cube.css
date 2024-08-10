@@ -1,0 +1,46 @@
+
+/* This one for sure works */
+
+
+html {
+	--u: 1.5vmin;
+	--c1: #aaa9a5;
+    --c2: #807769;
+    --c3: #383c41;
+	--gp: 50%/calc(var(--u) * 10) calc(var(--u) * 17.4);
+	--bp: calc(var(--u) * -5) calc(var(--u) * -8.7);
+	height: 100vh;
+	
+	--bg: 
+	
+		linear-gradient(-210deg, var(--c1) 0 1.25%, #fff0 0 100%) var(--gp),
+		linear-gradient(-150deg, var(--c1) 0 1.25%, #fff0 0 100%) var(--gp),
+	
+		conic-gradient(from 0deg at 0% 16.5%, var(--c3) 0 60deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 300deg at 100% 16.5%, var(--c2) 0 60deg, #fff0 0 100%) var(--gp),
+	
+		conic-gradient(from 300deg at 20.75% 23.5%, var(--c1) 0 120deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 300deg at 79.25% 23.5%, var(--c1) 0 120deg, #fff0 0 100%) var(--gp),
+	
+		conic-gradient(from 0deg at 50% 32.75%, var(--c2) 0 60deg, #fff0 0 100%) var(--gp),
+		
+		conic-gradient(from 270deg at 20.75% 42%, var(--c2) 0 90deg, var(--c3) 0 150deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 300deg at 79.25% 42%, var(--c2) 0 60deg, var(--c3) 0 150deg, #fff0 0 100%) var(--gp),
+	
+		conic-gradient(from 270deg at 45% 50%, var(--c2) 0 30deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 60deg at 55% 50%, var(--c3) 0 30deg, #fff0 0 100%) var(--gp),
+
+		linear-gradient(0deg, #f000 0 50%, var(--c1) 0 100%) var(--gp);
+	
+	background: 
+	
+		var(--bg), var(--bg);
+		
+    background-position: 
+		var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp),
+		var(--bp), var(--bp), 
+		0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 
+		0 0, 0 0;
+    
+		
+}

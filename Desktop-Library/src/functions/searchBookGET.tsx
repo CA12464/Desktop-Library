@@ -1,11 +1,10 @@
-// src/functions/searchBookGET.ts
-
 interface Book {
   id: number;
   title: string;
   author: string;
   genre: string;
   publication_date: string;
+  cover_image?: string; // Ensure this matches the response from your API
 }
 
 export const searchBooks = async (query: string): Promise<Book[]> => {
@@ -28,6 +27,7 @@ export const searchBooks = async (query: string): Promise<Book[]> => {
     throw error;
   }
 };
+
 
 
   

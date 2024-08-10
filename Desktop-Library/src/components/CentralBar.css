@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.central-bar-container {
+  position: fixed; /* Keeps the bar fixed in place */
+  top: 60%; /* Adjust this to position it vertically */
+  left: 0; /* Stretch it to the full width */
+  width: 100%; /* Full viewport width */
+  background-color: #000; /* Black background */
+  color: #f0f0f0; /* Light text color */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
+  z-index: 2;
+  display: flex; /* Use Flexbox to arrange the buttons */
+  justify-content: center; /* Center buttons horizontally */
+  gap: 30px; /* Increase space between buttons */
+}
+
+.button--primary {
+  position: relative; /* Required for tooltip positioning */
+  background: #000; /* Default background for buttons */
+  border-radius: 20%;
+  width: 90px; /* Increased width */
+  height: 90px; /* Increased height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px; /* Increased font size for larger icons */
+  color: #fff; /* Default text color */
+  text-decoration: none; /* Remove underline from links */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Smooth transition */
+}
+
+.button--primary .button-icon {
+  font-size: 36px; /* Ensure icon size is properly set */
+  display: flex; /* Ensure icon is a flex item */
+  justify-content: center; /* Center icon horizontally */
+  align-items: center; /* Center icon vertically */
+  margin: 0; /* Reset any default margin */
+  transform: scale(1.3); /* Increase size by 1.5 times */
+}
+
+.button--primary:hover {
+  background: #ddd; /* Background color on hover */
+}
+
+.button--primary:hover .tooltip {
+  top: -50px; /* Position tooltip above the button */
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #000000;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Button colors */
+.button--primary.browse:hover {
+  background: #302a31;
+  color: #ffffff;
+}
+
+.button--primary.add:hover {
+  background: #302a31;
+  color: #ffffff;
+}
+
+.button--primary.search:hover {
+  background: #302a31;
+  color: #ffffff;
+}
+

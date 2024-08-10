@@ -1,0 +1,13 @@
+/* BottomBar.css */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+    z-index: 1;
+  }
+  
