@@ -1,11 +1,76 @@
 For Desktop library read me what all needs to be installed:
 
+--install node.js into the folder you are using (if you download the node.js into the file you are using for the project you shouldn't have to 
+install npm. It should come with it.)
 
-FOR API
+--npm install -g vite (To install vite on your computer)
+    -- npm install --save-dev vite (Also)
+
+
+--npm install -g typescript (to install the typescript compiler)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PostgreSQL:
+
+--download PostgreSQL (When you get to the wizard download? you should be able to cancel that and it still be downloaded.)
+
+--install the SQLTools PostgreSQL/Cockroach Driver extension
+
+--install the SQLTools extension as well
+
+--you are going to have to setup your PostgreSQL and then use all the information you recorded on login and connection credentials
+so that you can connect through the SQLTools
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FOR API:
+
 --pip install flask
 
 --pip install psycopg2
 
 --pip install flask-cors
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FOR APPLICATION STYLING:
+
+--npm install --save-dev @types/react-transition-group
+
+--npm install lucide-react
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Commands for home library:
+
+to run flask api:
+
+ - (be in backend directory) python -m flask run
+
+To run dev environment:
+
+ - npm run dev
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+TO DO:
+
+
+-- fix the search ability you can only search for the author and title when you should be able to with the genre and publication date as well
+
+-- fix the buug that shows up when you browse books and search books all the results go above the screen and you lose the title along with the screen being white
+
+-- (optional) make the hover aorund the three buttons on the home page a bit smaller
+
+-- fixed the ability to search using genre and publication date as well but now when you search something like philosophy it fetches multiple different genres 
+not just philosophy
 
