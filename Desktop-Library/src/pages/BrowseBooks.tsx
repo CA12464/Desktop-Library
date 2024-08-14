@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { searchBooks } from '../functions/searchBookGET'; // Adjust the import path as needed
 import { BookImage } from '../functions/BookImageGET'; // Import the BookImage function
-import './BrowseBooks.css'; // Import the CSS file for styling
+import styles from './BrowseBooks.module.css'; // Import the CSS Module for styling
 
 interface Book {
   id: number;
@@ -51,35 +51,37 @@ function BrowseBooks() {
   }, []);
 
   return (
-    <div className="browse-books-wrapper">
-      <h1 className="browse-books-header">Browse Books</h1>
-      {error && <p className="error-message">{error}</p>}
-      <div className="book-grid">
+    <div className={styles.browseBooksWrapper}>
+      <h1 className={styles.browseBooksHeader}></h1>
+      {error && <p className={styles.errorMessage}>{error}</p>}
+      <div className={styles.cardContainer}>
         {books.length > 0 ? (
           books.map((book) => (
-            <div key={book.id} className="book-item">
+            <div key={book.id} className={styles.card}>
               {book.cover_image_url ? (
                 <img
                   src={book.cover_image_url}  // Use the URL from the book object
                   alt={`${book.title} Cover`}
-                  className="book-cover"
+                  className={styles.card__background}
                 />
               ) : (
                 <img
                   src="/images/51YsnEoNr-L.png"  // Placeholder image if cover_image_url is not available
                   alt="Placeholder"
-                  className="book-cover"
+                  className={styles.card__background}
                 />
               )}
-              <h2 className="book-title">{book.title}</h2>
-              <p className="book-author">Author: {book.author}</p>
-              <p className="book-genre">Genre: {book.genre}</p>
-              <p className="book-date">Publication Date: {book.publication_date}</p>
-              <button className="view-more-button">View More</button>
+              <div className={styles.card__content}>
+                <h2 className={styles.card__title}>{book.title}</h2>
+                <p>Author: {book.author}</p>
+                <p>Genre: {book.genre}</p>
+                <p>Publication Date: {book.publication_date}</p>
+                <button className={styles.card__button}>View More</button>
+              </div>
             </div>
           ))
         ) : (
-          <p></p>
+          <p>No books found</p>
         )}
       </div>
     </div>
