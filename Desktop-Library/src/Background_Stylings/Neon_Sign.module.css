@@ -1,56 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@400;700&display=swap');
 
 :root {
-  --brand-primary: #c2b4b4;   /*#b34b4b */
+  --brand-primary: #c2b4b4;
   --font-family-display: Monoton, Arial, sans-serif;
   --font-family-primary: 'Rubik', Arial, sans-serif;
   --neon-effect: 0 0 0 transparent,
-  
-   /* LIGHTER PURPLE */
-  0 0 20px rgb(160, 32, 240),
-  0 0 50px rgba(160, 32, 240, .5),
-  0 0 200px rgba(160, 32, 240, .5),
-  0 0 250px rgba(160, 32, 240, 1),
-  0 0 300px rgba(160, 32, 240, 1),
-  -250px -100px 100px rgba(160, 32, 240, 1);
+   0 0 20px rgb(160, 32, 240),
+   0 0 50px rgba(160, 32, 240, .5),
+   0 0 200px rgba(160, 32, 240, .5),
+   0 0 250px rgba(160, 32, 240, 1),
+   0 0 300px rgba(160, 32, 240, 1),
+   -250px -100px 100px rgba(160, 32, 240, 1);
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%; /* Ensure the body and html cover the full viewport height */
-  margin: 0; /* Remove default margin */
-  background-color: #000; /* Set a uniform background color */
+html, body {
+  height: 100%;
+  margin: 0;
   font-family: var(--font-family-primary);
   line-height: 1.42;
 }
 
 .mainWrapper {
   background-color: #000;
-  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+  min-height: 100vh;
   width: 100%;
-  overflow: hidden; /* Hide overflow if needed */
 }
 
 .heroBlock {
-  padding: 60px 30px; /* Increase padding for more space inside the block */
-  margin-top: 70px; /* Adjust as needed to position the block */
+  padding: 60px 30px;
+  margin-top: 70px;
   text-align: center;
-  border-radius: 20px; /* Rounded corners */
-  width: 100%; /* Adjust as needed */
-  max-width: 1200px; /* Ensure it doesn't get too wide */
+  border-radius: 20px;
+  max-width: 1200px;
 }
 
 .hero {
   background-color: #000;
-  height: auto; /* Adjust height to fit content */
-  min-height: 100vh; /* Ensure it covers at least the viewport height */
+  height: auto;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Align children vertically */
-  justify-content: flex-start; /* Align items to the top */
+  flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
 }
 
@@ -59,8 +53,8 @@ body {
   color: #FF8888;
   font-size: 45px;
   text-shadow: var(--neon-effect);
-  margin: 0; /* Remove default margin */
-  line-height: 1.1; /* Adjust line-height for better spacing */
+  margin: 0;
+  line-height: 1.1;
   text-transform: uppercase;
   transform: skew(0, -12deg) rotateZ(5deg);
   white-space: nowrap;
@@ -69,16 +63,16 @@ body {
 
 .heroTitle span {
   display: block;
-  margin: 0; /* Ensure no additional margin is applied */
+  margin: 0;
 }
 
 .heroTitle span:not(:last-child) {
-  margin-bottom: 0px; /* Increase the negative margin to bring lines closer */
+  margin-bottom: 0px;
 }
 
 .description {
-  background-color: #444; /* Lighter grey background for text */
-  color: #ddd; /* Light text color for contrast */
+  background-color: #444;
+  color: #ddd;
   font-family: var(--font-family-primary);
   font-size: 18px;
   margin: 0 auto;
@@ -95,45 +89,12 @@ body {
 }
 
 @keyframes neonBlink {
-  44% {
-    opacity: 1;
-  }
-  
-  45% {
-    opacity: .7;
-  }
-  
-  46% {
-    opacity: 1;
-  }
-  
-  98% {
-    opacity: 1;
-  }
-  
-  99% {
-    opacity: .5;
-  }
-  
-  100% {
-    opacity: 1;
-  }
-}
-
-*:focus,
-*:active {
-  outline: none !important;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html,
-body {
-  display: grid;
-  height: 100%;
-  width: 100%;
-  font-family: "Poppins", sans-serif;
-  place-items: center;
-  background: linear-gradient(315deg, #ffffff, #d7e1ec);
+  44% { opacity: 1; }
+  45% { opacity: .7; }
+  46% { opacity: 1; }
+  98% { opacity: 1; }
+  99% { opacity: .5; }
+  100% { opacity: 1; }
 }
 
 .wrapper {
@@ -149,7 +110,7 @@ body {
   margin: 10px;
   width: 50px;
   height: 50px;
-  font-size: 24px; /* Adjusted for better icon visibility */
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,44 +188,40 @@ body {
   color: #ffffff;
 }
 
-/* New styles for text box and button layout */
 .textBoxContainer {
   display: flex;
   align-items: center;
-  background-color: rgba(51, 51, 51, 0.4); /* Semi-transparent background */
+  background-color: rgba(51, 51, 51, 0.4);
   padding: 20px;
   border-radius: 8px;
-  margin: 10px 0; /* Space between items */
+  margin: 10px 0;
 }
 
 .textBox {
-  flex: 1; /* Takes up remaining space */
-  color: #fff; /* Text color */
+  flex: 1;
+  color: #fff;
 }
 
 .buttonContainer {
-  margin-left: 20px; /* Space between text and button */
+  margin-left: 20px;
 }
 
 .buttonPrimary {
-  background-color: var(--brand-primary); /* Define this variable in your CSS */
+  background-color: var(--brand-primary);
   border-color: transparent;
   color: #000;
-  font-family: var(--font-family-primary); /* Define this variable in your CSS */
+  font-family: var(--font-family-primary);
   font-weight: bold;
   padding: 10px 20px;
   transition: transform .2s;
-  display: inline-flex; /* Ensure it behaves like a button */
+  display: inline-flex;
   align-items: center;
-  text-decoration: none; /* Remove default link underline */
-  border-radius: 8px; /* Optional: rounded corners */
+  text-decoration: none;
+  border-radius: 8px;
 }
 
 .buttonPrimary:hover {
-  background-color: #a59999; 
+  background-color: #a59999;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
 }
-
-
-
