@@ -1,0 +1,39 @@
+/* src/pages/BookDetails.module.css */
+
+.bookDetailsWrapper {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .errorMessage {
+    color: red;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #000000;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  strong {
+    color: #333;
+  }
+  

@@ -1,18 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Sidebar.css'; // Import the CSS file
-import { Waypoints } from 'lucide-react';
+import { Waypoints, ArrowLeft } from 'lucide-react'; // Import icons
 
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="sidebar">
       <ul>
         <li>
-          <Link to="/">
-           <Waypoints/> {/* Apply both classes */}
+          <Link to="/" className="sidebar-icon">
+            <Waypoints /> {/* Home button */}
           </Link>
         </li>
         <li>
+          <button onClick={() => navigate(-1)} className="sidebar-icon">
+            <ArrowLeft /> {/* Back button */}
+          </button>
         </li>
       </ul>
     </div>
@@ -20,6 +25,3 @@ const Sidebar: React.FC = () => {
 }
 
 export default Sidebar;
-
-
-

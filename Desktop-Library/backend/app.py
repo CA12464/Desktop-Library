@@ -80,6 +80,8 @@ def add_book():
     except Exception as e:
         print(f"Database operation error: {e}")  # Log error message
         return jsonify({"error": "Error adding book"}), 500
+    
+
 
 @app.route('/api/BookImage/<int:book_id>', methods=['GET'])
 def get_book_image(book_id):
@@ -100,6 +102,33 @@ def get_book_image(book_id):
     except Exception as e:
         print(f"Error fetching book image: {e}")
         return jsonify({"error": "Error fetching book image"}), 500
+    
+
+
+@app.route('/api/books/<int:book_id>', methods=['GET'])
+def get_book_by_id(book_id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT id, title, author, genre, publication_date, cover_image, description FROM books WHERE id = %s', (book_id,))
+    book = cur.fetchone()
+    
+    cur.close()
+    conn.close()
+
+    if book:
+        return jsonify({
+            "id": book[0],
+            "title": book[1],
+            "author": book[2],
+            "genre": book[3],
+            "publication_date": book[4],
+            "cover_image_url": book[5] if book[5] else '',
+            "description": book[6] if book[6] else 'No description available'
+        })
+    else:
+        return jsonify({"error": "Book not found"}), 404
+
+
 
 
 if __name__ == '__main__':

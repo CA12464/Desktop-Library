@@ -9,6 +9,8 @@ install npm. It should come with it.)
 
 --npm install -g typescript (to install the typescript compiler)
 
+--npm install axios
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 PostgreSQL:

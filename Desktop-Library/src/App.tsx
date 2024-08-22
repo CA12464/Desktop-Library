@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import BrowseBooks from './pages/BrowseBooks';
 import AddBook from './pages/AddBook';
 import SearchBooks from './pages/SearchBooks';
+import BookDetail from './pages/BookDetail'; // Import the BookDetails page
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/browse" element={<BrowseBooks />} />
             <Route path="/add" element={<AddBook />} />
             <Route path="/search" element={<SearchBooks />} />
+            <Route path="/books/:id" element={<BookDetail />} /> {/* Add this route */}
           </Routes>
         </div>
       </div>
@@ -26,4 +28,3 @@ function App() {
 }
 
 export default App;
-
